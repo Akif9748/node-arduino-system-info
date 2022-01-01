@@ -1,12 +1,14 @@
 # Nodejs Arduino System Info
-###### See your system information on LCD with Arduino!
+See your system information on LCD with Arduino!
 You can see RAM usage, and CPU usage.
 ## Requipments:
 - An Arduino Board. **[ You can use all type of Arduino types *(Leonardo, UNO, Mega etc.)* ]**
 - A 16X2 *(Minimum)* LCD Shield **with or without I2C**
-- A 10K potentiometer 
-- A 220 Omh resistor
 - Nodejs in your computer
+
+**If your LCD Without I2C, you need:**
+- A 10K potentiometer 
+- A 220 Ohm resistor 
 
 
 ## How to use?
