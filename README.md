@@ -13,8 +13,8 @@ You can see RAM usage, and CPU usage.
 
 ## How to use?
 1. Download this repo.
-2. Upload code named `systeminfo.ino` to your Board.
-3. Connect pins. And connect your board to your computer.
+2. If you have I2C upload code named `systeminfoI2C.ino`,else `systeminfo.ino` to your Board.
+3. Connect pins. Look under for this. And connect your board to your computer.
 4. Write `npm i` to console in project folder.
 5. Write your COM port to code:
 ```js
@@ -24,5 +24,8 @@ const port = new SerialPort('COM3', { baudRate: 9600 });
 Image at working:
 ![image](https://user-images.githubusercontent.com/70021050/147857017-f1ea1fb9-cfdc-4139-93a1-c50da9da4bb0.jpg)
 
-Circuit of Project:
+Circuit of Project for **NOT I2C**:
 ![tinkercad](https://user-images.githubusercontent.com/70021050/147857009-69643cf9-e338-4abb-81e5-e55f44b51196.png)
+
+**For I2C**:
+![image](https://user-images.githubusercontent.com/70021050/147857874-e9ff53cb-1a57-4f7c-a34b-258d9aaa5340.png)
