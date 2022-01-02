@@ -5,7 +5,7 @@
 const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
-char *strings[10];   // For datas
+char *strings[12];   // For datas
 char *ptr = NULL;    //
 String kol_Str = ""; //
 
@@ -30,9 +30,9 @@ void loop()
       //  Read serial
       kol_Str = Serial.readString();
       int index = 0;
-      char kolyedek[11];
+      char kolyedek[13];
       String kol_Str_yedek;
-      kol_Str.toCharArray(kolyedek, 11); // String => Char
+      kol_Str.toCharArray(kolyedek, 13); // String => Char
 
       ptr = strtok(kolyedek, "-"); // Split "-"
       while (ptr != NULL)
