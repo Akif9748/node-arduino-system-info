@@ -5,13 +5,11 @@ const os = require('os-utils');
 const port = new SerialPort('COM3', { baudRate: 9600 });
 
 // Port ready message
-port.on("open", () => {
-  console.log('Serial is ready!');
-});
+port.on("open", () => console.log('Serial is ready!'));
 
+const total = os.totalmem().toFixed(0);//Total memory on your system
 
 setInterval(() => {
-  const total = os.totalmem().toFixed(0);//Total memory on your system
   const used = (os.totalmem() - os.freemem()).toFixed(0);//Used memory on your system
   const ratio = 100 * ((used / total).toFixed(2));//Used memory / Total memory
   os.cpuUsage(usage => {//CPU USAGE
