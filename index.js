@@ -1,29 +1,24 @@
 const SerialPort = require('serialport');
-const os = require('os-utils');
-
-//Your com port and baudrate: (BaudRate is defined in Arduino Code, 9600.)
+const { totalmem, freemem, cpuUsage } = require('os-utils');
+//Your com port and baudrate
 const port = new SerialPort('COM3', { baudRate: 9600 });
 
-// Port ready message
+// Read the port data
 port.on("open", () => console.log('Serial is ready!'));
 
-const total = os.totalmem().toFixed(0);//Total memory on your system
+//Total Mem
+const totalMem = totalmem();
 
+//Main interval
 setInterval(() => {
-  const used = (os.totalmem() - os.freemem()).toFixed(0);//Used memory on your system
-  const ratio = 100 * ((used / total).toFixed(2));//Used memory / Total memory
-  os.cpuUsage(usage => {//CPU USAGE
-     /*
-      A format for sending datas to Arduino.
-      UsedRAM-UsedRAMRatio-CPUUsage
-      For example:
-      2824-69-10
-     */
-    port.write(`${used}-${ratio}-${usage.toFixed(2) * 100}`, (err) => {
-      if (err) console.error(err);
-    });
+  //Memory usage:
+  const memUsage = (totalMem - freemem()).toFixed(0),
+    memRatio = 100 * (memUsage / totalMem).toFixed(2);
 
-  });
+  //CPU usage:
+  cpuUsage(usage =>
+    //Writing to port.
+    port.write(`${memUsage}-${memRatio}-${usage.toFixed(2) * 100}`, err => err ? console.error(err) : null)
+  );
 
-
-}, 1000);//Refreshing per one second
+}, 1000);//Per 1000 ms
