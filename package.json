@@ -1,6 +1,6 @@
 {
-  "name": "node-arduino-system-info",
-  "version": "3.0.1",
+  "name": "arduino-system-info",
+  "version": "1.0.0",
   "description": "See your system information on LCD with Arduino!",
   "main": "index.js",
   "scripts": {

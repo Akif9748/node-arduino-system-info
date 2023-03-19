@@ -1,16 +1,16 @@
 #include <Wire.h>
 #include <LiquidCrystal.h>
 
-//LCD pins:
+// LCD pins:
 const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
 // String max size: 65536-100-100
-const int size = 14;
+const int size = 14, strings_size = 3;
 
 // For datas:
-String ram , ramUsage, cpu;
-char *strings[size],*ptr = NULL; 
+String ram, ramUsage, cpu;
+char *strings[strings_size], *ptr = NULL;
 
 void setup()
 {
@@ -22,21 +22,19 @@ void setup()
 
 void loop()
 {
-  //While getting data:
+  // While getting data:
   while (Serial.available() > 1)
-  { 
-    //Read serial
+  {
+    // Read serial
     String data = Serial.readString();
     char values[size];
-    
-    data.toCharArray(values, size); // String => Char
-    ptr = strtok(values, "-"); // Split "-"
 
-    int index = 0;
-    while (ptr != NULL)
+    data.toCharArray(values, size); // String => Char
+    ptr = strtok(values, "-");      // Split "-"
+
+    for (int i = 0; i < strings_size; i++)
     {
-      strings[index] = ptr; // Save to Strings
-      index++;
+      strings[index] = ptr;    // Save to Strings
       ptr = strtok(NULL, "-"); // Split "-"
     }
 
@@ -44,7 +42,7 @@ void loop()
     ram = strings[0];
     ramUsage = strings[1];
     cpu = strings[2];
-    
+
     // Clear LCD
     lcd.clear();
 
