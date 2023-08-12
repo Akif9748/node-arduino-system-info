@@ -34,7 +34,7 @@ void loop()
 
     for (int i = 0; i < strings_size; i++)
     {
-      strings[index] = ptr;    // Save to Strings
+      strings[i] = ptr;    // Save to Strings        
       ptr = strtok(NULL, "-"); // Split "-"
     }
 
@@ -50,6 +50,6 @@ void loop()
     lcd.setCursor(0, 0);
     lcd.print("RAM: " + ram + " %" + ramUsage);
     lcd.setCursor(0, 1);
-    lcd.print("CPU: %" + cpu);
+    lcd.print("CPU: %" + cpu.substring(0, ((cpu.lastIndexOf('0') > 1) ? 3 : 2)));
   }
 }
