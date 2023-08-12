@@ -2,9 +2,9 @@
   "name": "arduino-system-info",
   "version": "1.0.2",
   "description": "See your system information on LCD with Arduino!",
-  "main": "index.js",
+  "main": "index.mjs",
   "scripts": {
-    "test": "node index.js"
+    "test": "node index.mjs"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/Akif9748/node-arduino-system-info#readme",
   "dependencies": {
-    "os-utils": "^0.0.14",
     "serialport": "^9.2.8"
   }
 }

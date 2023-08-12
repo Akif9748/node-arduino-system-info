@@ -20,7 +20,7 @@ You can see RAM usage, and CPU usage.
 ```js
 const port = new SerialPort('COM3', { baudRate: 9600 });
 ```
-6. And finaly, Write `node index.js` to console and you can see your System Info on LCD.
+6. And finaly, Write `node index.mjs` to console and you can see your System Info on LCD.
 Image at working:
 ![image](https://user-images.githubusercontent.com/70021050/147857017-f1ea1fb9-cfdc-4139-93a1-c50da9da4bb0.jpg)
 
